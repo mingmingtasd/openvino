@@ -14,7 +14,7 @@ if(NOT ENABLE_DOCKER)
     if(NOT InferenceEngine_FOUND)
         set(InferenceEngine_DIR ${CMAKE_BINARY_DIR})
     endif()
-    add_subdirectory(template_extension)
+#    add_subdirectory(template_extension)
 endif()
 
 # OpenVINO docs
