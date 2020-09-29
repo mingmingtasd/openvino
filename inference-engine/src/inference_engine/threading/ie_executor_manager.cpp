@@ -106,7 +106,7 @@ ExecutorManager* ExecutorManager::getInstance() {
      */
     std::lock_guard<std::mutex> guard(_mutex);
     if (_instance == nullptr) {
-        _instance = new ExecutorManager();
+        //_instance = new ExecutorManager();
     }
     return _instance;
 }

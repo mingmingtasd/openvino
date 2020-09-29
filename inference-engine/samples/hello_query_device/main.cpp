@@ -70,6 +70,10 @@ void printParameterValue(const Parameter & value) {
 
 int main(int argc, char *argv[]) {
     try {
+        std::cout << "try hello_query start" << std::endl;
+        auto tmp = std::make_shared<int32_t> (5);
+        std::cout << "try hello_query start2===" << std::endl;
+        std::cout << "try hello_query start3===" << EXIT_FAILURE << std::endl;
         // ------------------------------ Parsing and validation of input args ---------------------------------
         if (argc != 1) {
             std::cout << "Usage : ./hello_query_device" << std::endl;
@@ -111,9 +115,15 @@ int main(int argc, char *argv[]) {
 
             std::cout << std::endl;
         }
+        std::cout << "try hello_query end" << std::endl;
     } catch (const std::exception & ex) {
+        std::cout << "exception=====" << std::endl;
         std::cerr << ex.what() << std::endl;
-        return EXIT_FAILURE;
+    return EXIT_FAILURE;
     }
+    std::cout << "hello_query end===" << std::endl;
+    //auto tmp = std::make_shared<int32_t> (5);
+    std::cout << "hello_query end2===" << std::endl;
+    //std::cout << "tmp = std::make_shared: "<< &tmp << std::endl;
     return EXIT_SUCCESS;
 }

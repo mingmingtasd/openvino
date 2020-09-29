@@ -35,3 +35,4 @@ install(TARGETS ${TARGET_NAME}
 install(DIRECTORY ${InferenceEngine_C_API_SOURCE_DIR}/include/
         DESTINATION ${IE_CPACK_IE_DIR}/include/
         COMPONENT core)
+add_subdirectory(ienn)

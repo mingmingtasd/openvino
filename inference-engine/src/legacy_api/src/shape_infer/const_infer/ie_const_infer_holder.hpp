@@ -43,7 +43,7 @@ template <typename Impl>
 class ImplRegisterBase {
 public:
     explicit ImplRegisterBase(const std::string& type) {
-        ConstInferHolder::AddImpl(type, std::make_shared<Impl>(type));
+        //ConstInferHolder::AddImpl(type, std::make_shared<Impl>(type));
     }
 };
 
