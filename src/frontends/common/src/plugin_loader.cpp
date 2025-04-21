@@ -78,25 +78,36 @@ void load_static_plugins(std::vector<PluginInfo>& res) {
 
 // TODO: change to std::filesystem for C++17
 static std::vector<std::string> list_files(const std::string& path) {
-    std::vector<std::string> res;
-    try {
-        const auto prefix = std::string(FRONTEND_LIB_PREFIX);
-        const auto suffix = std::string(FRONTEND_LIB_SUFFIX);
-        ov::util::iterate_files(
-            path,
-            [&res, &prefix, &suffix](const std::string& file_path, bool is_dir) {
-                auto file = ov::util::get_file_name(file_path);
-                if (!is_dir && (prefix.empty() || file.compare(0, prefix.length(), prefix) == 0) &&
-                    file.length() > suffix.length() &&
-                    file.rfind(suffix) == (file.length() - std::string(suffix).length())) {
-                    res.push_back(file_path);
-                }
-            },
-            false,
-            true);
-    } catch (...) {
-        // Ignore exceptions
-    }
+    const auto prefix = path + "\\"+ std::string(FRONTEND_LIB_PREFIX);
+    const auto suffix = std::string(FRONTEND_LIB_SUFFIX);
+    std::vector<std::string> res = {prefix + "onnx" + suffix,
+                                    prefix + "ir" + suffix,
+                                    prefix + "paddle" + suffix,
+                                    prefix + "pytorch" + suffix,
+                                    prefix + "tensorflow" + suffix,
+                                    prefix + "tensorflow_lite" + suffix,
+                                    prefix + "jax" + suffix};
+    // const auto prefix = std::string(FRONTEND_LIB_PREFIX);
+    // const auto suffix = std::string(FRONTEND_LIB_SUFFIX);
+    // std::vector<std::string> res;
+    // try {
+    //     const auto prefix = std::string(FRONTEND_LIB_PREFIX);
+    //     const auto suffix = std::string(FRONTEND_LIB_SUFFIX);
+    //     ov::util::iterate_files(
+    //         path,
+    //         [&res, &prefix, &suffix](const std::string& file_path, bool is_dir) {
+    //             auto file = ov::util::get_file_name(file_path);
+    //             if (!is_dir && (prefix.empty() || file.compare(0, prefix.length(), prefix) == 0) &&
+    //                 file.length() > suffix.length() &&
+    //                 file.rfind(suffix) == (file.length() - std::string(suffix).length())) {
+    //                 res.push_back(file_path);
+    //             }
+    //         },
+    //         false,
+    //         true);
+    // } catch (...) {
+    //     // Ignore exceptions
+    // }
     return res;
 }
 
