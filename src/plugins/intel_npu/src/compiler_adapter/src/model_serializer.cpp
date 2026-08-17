@@ -25,6 +25,7 @@
 
 namespace {
 
+    
 constexpr std::string_view INPUTS_PRECISIONS_KEY = "--inputs_precisions";
 constexpr std::string_view INPUTS_LAYOUTS_KEY = "--inputs_layouts";
 constexpr std::string_view OUTPUTS_PRECISIONS_KEY = "--outputs_precisions";
